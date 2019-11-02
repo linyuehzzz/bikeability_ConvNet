@@ -54,12 +54,14 @@ class_names = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane',
 # 5. Run Object Detection
 # Load a random image from the images folder
 file_names = next(os.walk(IMAGE_DIR))[2]
-for file_name in file_names:
-    image = skimage.io.imread(os.path.join(IMAGE_DIR, file_name))
-    # Run detection
-    results = model.detect([image], verbose=1)
-    # Visualize results
-    r = results[0]
-    visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
-                                class_names, r['scores'])
+with open("mask_results.csv", 'w') as file:
+    for file_name in file_names:
+        image = skimage.io.imread(os.path.join(IMAGE_DIR, file_name))
+        # Run detection
+        results = model.detect([image], verbose=1)
+        # Save results
+        r = results[0]
+        file.write(file_name + ',' + r['rois'] + ',' + r['masks'] + ',' + r['class_ids'] + ',' + class_names + ',' + r['scores'])
+        visualize.display_instances(file_name, image, r['rois'], r['masks'], r['class_ids'],
+                                    class_names, r['scores'])
     
