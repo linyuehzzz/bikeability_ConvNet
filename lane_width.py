@@ -100,8 +100,8 @@ def compare_widths(polys):
     return i, width
 
 
-polygon1 = [[0,0], [4,0], [2,9], [1.5,9], [0,0]]
-polygon2 = [[0,3], [3,2], [8,9], [4,8], [3,3]]
+polygon1 = [[0,0], [4,0], [3,9], [1.5,9], [0,0]]
+polygon2 = [[1.5,0], [6,0], [8,8], [4,8], [1.5,0]]
 polygons = [polygon1, polygon2]
 print(polygons)
 print(compare_widths(polygons))
