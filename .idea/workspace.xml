@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c832c0f-50a8-4a8a-a1e1-838be2517568" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mask32_kJplAsLGSJo3-YE15Ykdgw_97_2016_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask34_IEzmwrfX_RtL3xlsyQPw1g_97_2017_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask36_zih9rPE-cJErW7cXAcGmuQ_97_2017_9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask42_Gx7p99vbWXiSBzAmt9j7Vw_97_2016_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask44_vT37b01wZ_vCS12jTXwZBQ_97_2017_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask48_k-ajhIMfJCcvcd9noG_evQ_100_2016_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask74_DBvNR7Ndqx8HnIjnbNzoGw_46_2015_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask75_DBvNR7Ndqx8HnIjnbNzoGw_-133_2015_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask76_VJsY7P8hAarBAUHk_m26wQ_46_2015_11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mask_results.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mask_r_cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/mask_r_cnn.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
