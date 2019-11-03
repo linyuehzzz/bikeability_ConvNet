@@ -1,4 +1,14 @@
-import math
+def extract_first_three_lanes(polys):
+    """
+    Extract the first three lanes
+
+    Input
+      polys:   all lanes
+
+    Ouput
+      the first three lanes
+    """
+    return polys[:3]
 
 
 def calculate_max_width(poly):
@@ -79,29 +89,33 @@ def compare_widths(polys):
     Ouput
       index and the corresponding width
     """
+    # 1. Extract the first three lanes
+    polys = extract_first_three_lanes(polys)
 
-    # 1. Calculate the y coordinate of the copmared baseline
+    # 2. Calculate the y coordinate of the copmared baseline
     width_ys = []
     for poly in polys:
         width_y = calculate_max_width(poly)
         width_ys.append(width_y)
     y_base = calculate_max_y(width_ys)
-    print(y_base)
 
-    # 2. Compare widths
+    # 3. Compare widths
     width = 0
     i = 0
     for poly in polys:
         w = calculate_compared_width(y_base, poly)
-        print(w)
         if w > width:
             width = w
             i = polys.index(poly)
-    return i, width
+
+    polys_results = [poly for poly in polys if polys.index(poly) != i]
+    return polys_results
 
 
 polygon1 = [[0,0], [4,0], [3,9], [1.5,9], [0,0]]
 polygon2 = [[1.5,0], [6,0], [8,8], [4,8], [1.5,0]]
-polygons = [polygon1, polygon2]
+polygon3 = [[4,0], [8,0], [5,7], [4,7], [4,0]]
+polygon4 = [[1.5,0], [6,0], [8,8], [4,8], [1.5,0]]
+polygons = [polygon1, polygon2, polygon3, polygon4]
 print(polygons)
 print(compare_widths(polygons))
