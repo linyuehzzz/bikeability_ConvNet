@@ -1,6 +1,6 @@
 import os
 import sys
-import matplotlib.pyplot as plt
+import numpy as np
 import skimage.io
 
 # 1. Set directories
@@ -48,20 +48,34 @@ model.load_weights(COCO_MODEL_PATH, by_name=True)
 # the teddy bear class, use: class_names.index('teddy bear')
 class_names = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane',
                'bus', 'train', 'truck', 'boat', 'traffic light',
-               'fire hydrant', 'stop sign', 'parking meter']
+               'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird',
+               'cat', 'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear',
+               'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie',
+               'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball',
+               'kite', 'baseball bat', 'baseball glove', 'skateboard',
+               'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup',
+               'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple',
+               'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza',
+               'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed',
+               'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote',
+               'keyboard', 'cell phone', 'microwave', 'oven', 'toaster',
+               'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors',
+               'teddy bear', 'hair drier', 'toothbrush']
 
 
 # 5. Run Object Detection
 # Load a random image from the images folder
 file_names = next(os.walk(IMAGE_DIR))[2]
-with open("mask_results.csv", 'w') as file:
-    for file_name in file_names:
-        image = skimage.io.imread(os.path.join(IMAGE_DIR, file_name))
-        # Run detection
-        results = model.detect([image], verbose=1)
-        # Save results
-        r = results[0]
-        file.write(file_name + ',' + r['rois'] + ',' + r['masks'] + ',' + r['class_ids'] + ',' + class_names + ',' + r['scores'])
-        visualize.display_instances(file_name, image, r['rois'], r['masks'], r['class_ids'],
-                                    class_names, r['scores'])
+np.set_printoptions(threshold=np.inf)
+for file_name in file_names:
+    image = skimage.io.imread(os.path.join(IMAGE_DIR, file_name))
+    # Run detection
+    results = model.detect([image], verbose=1)
+    # Save results
+    r = results[0]
+    visualize.display_instances(file_name, image, r['rois'], r['masks'], r['class_ids'],
+                                class_names, r['scores'])
+    del r['masks']
+    with open(os.path.join(ROOT_DIR, "data/results/json/") + os.path.splitext(file_name)[0] + ".txt", 'w') as file:
+        file.write(str(r))
     
