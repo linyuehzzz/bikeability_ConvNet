@@ -108,8 +108,9 @@ def compare_widths(polys):
             width = w
             i = polys.index(poly)
 
+    indexes = [idx for idx in range(3) if idx != i]
     polys_results = [poly for poly in polys if polys.index(poly) != i]
-    return polys_results
+    return indexes, polys_results
 
 
 polygon1 = [[0,0], [4,0], [3,9], [1.5,9], [0,0]]
