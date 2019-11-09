@@ -75,7 +75,7 @@ for file_name in file_names:
     r = results[0]
     visualize.display_instances(file_name, image, r['rois'], r['masks'], r['class_ids'],
                                 class_names, r['scores'])
-    del r['masks']
-    with open(os.path.join(ROOT_DIR, "data/results/json/") + os.path.splitext(file_name)[0] + ".txt", 'w') as file:
-        file.write(str(r))
+    # del r['masks']
+    # with open(os.path.join(ROOT_DIR, "data/results/json/") + os.path.splitext(file_name)[0] + ".txt", 'w') as file:
+    #     file.write(str(r))
     
